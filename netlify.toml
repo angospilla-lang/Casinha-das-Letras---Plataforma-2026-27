@@ -1,0 +1,36 @@
+[build]
+  publish = "."
+  command = "echo 'Casinha das Letras - No build needed - static'"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[functions]
+  directory = "netlify/functions"
+
+# Env vars - configurar no painel Netlify
+# VITE_SUPABASE_URL=https://vxtxabbjlxirrbgkctqn.supabase.co
+# VITE_SUPABASE_ANON_KEY=sb_publishable_Ss3YMudwL2t71qnqhdeQVw_O7weUiwo
+# VITE_VENDUS_API_KEY=
+# VITE_VENDUS_BASE=https://www.vendus.co.ao/ws/v1.1/
+# VITE_EMAIL=casinhadasletras.ccl@gmail.com
